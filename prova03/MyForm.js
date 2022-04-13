@@ -1,16 +1,21 @@
-import React from 'react';
-import { Content, Form, Item, Input } from 'native-base';
+import React, { useState } from 'react';
+import { Content, Form, Item, Input, Text } from 'native-base';
 export default function MyForm() {
+    const [name, setName] = useState('')
     return (
         <Content>
             <Form>
                 <Item>
-                    <Input placeholder='Enter Email' />
+                    <Input placeholder='Qual o seu nome?'
+                        onChangeText={text => setName(text)}
+                    />
                 </Item>
-                <Item last>
-                    <Input placeholder='Enter Password' />
-                </Item>
+                
             </Form>
+            <Text>
+                O nome digitado foi: {name}
+            </Text>
         </Content>
     );
 }
+
